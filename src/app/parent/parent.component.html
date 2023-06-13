@@ -1,0 +1,25 @@
+
+<app-child [parentMessage]="message"></app-child>
+
+<app-child (messageEvent)= "receiveMessage($event)"></app-child>
+
+<h3>{{messageFromChild}}</h3>
+
+<table class="table table-hover">
+    <thead>
+        <th>ProductId</th>
+        <th>Product Name</th>
+        <th>Product Description</th>
+        <th>Product Price</th>
+        <th colspan="2">Actions</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products; let i=index">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td><a (click)="deleteProduct(i)" class="btn btn-danger">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
